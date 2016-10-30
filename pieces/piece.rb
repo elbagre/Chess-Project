@@ -9,12 +9,12 @@ class Piece
 
   def move_into_check?(end_pos)
     dup_board = board.dup
-    dup_board.move(color, position, end_pos)
+    dup_board.move!(position, end_pos)
     dup_board.in_check?(color)
   end
 
   def valid_move?(pos)
-    board.in_bounds?(pos) && board.empty?(pos) && board[pos].color != color
+    board.in_bounds?(pos) && (board.empty?(pos) || board[pos].color != color)
   end
 
 end

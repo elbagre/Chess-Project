@@ -12,12 +12,10 @@ class HumanPlayer < Player
       if move_x
         puts "It is #{color}'s turn. Place where?"
         move_y = display.cursor.get_input
-
         display.reset! if move_y
       else
         puts "It is #{color}'s turn. Move which piece?"
         move_x = display.cursor.get_input
-
         display.reset! if move_x
       end
     end

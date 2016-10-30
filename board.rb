@@ -29,7 +29,7 @@ class Board
   end
 
   def move(turn_color, start_pos, end_pos)
-    raise "No piece at this position" if self.empty?(start_pos)
+    raise "No piece at this position" if empty?(start_pos)
     raise "Invalid move" if !self[start_pos].moves.include?(end_pos)
     raise "Cannot move into check" if self[start_pos].move_into_check?(end_pos)
     raise "Not your piece" if self[start_pos].color != turn_color
@@ -76,7 +76,7 @@ class Board
   end
 
   def in_bounds?(pos)
-    pos.all? { |el| el >= 0 && el <= 7 }
+    pos.all? { |el| el.between?(0, 7) }
   end
 
   def pieces
